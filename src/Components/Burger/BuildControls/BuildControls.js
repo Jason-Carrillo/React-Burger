@@ -12,7 +12,9 @@ const contols = [
 
 const buildControls = (props) => (
     <div className={classes.BuildControls}>
-        {contols}
+        {contols.map(ctrl => (
+            <BuildControl key={ctrl.label} label={ctrl.label} />
+        ))}
     </div>
 )
 
