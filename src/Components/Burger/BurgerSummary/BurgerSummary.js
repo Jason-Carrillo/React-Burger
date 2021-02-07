@@ -5,7 +5,7 @@ import Aux from '../../../hoc/Aux'
 const orderSummary = (props) => {
     const ingredientSummary = Object.keys(props.ingredients)
         .map(igKey => {
-            return <li><span>{igKey}</span>: {props.ingredients[igKey]}</li>
+            return <li><span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.ingredients[igKey]}</li>
                 })
 
     return (
