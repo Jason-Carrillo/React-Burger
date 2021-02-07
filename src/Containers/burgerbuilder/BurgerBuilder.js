@@ -22,19 +22,16 @@ class BurgerBuilder extends Component {
         purchasable: false
     }
 
-    updatePurchaseState = () => {
-    const ingredients = {
-        ...this.state.ingredients
-    }
+    updatePurchaseState = (ingredients) => {
 
-    const sum = Object.keys(ingredients)
-        .map(igKey => {
-            return ingredients[igKey]
-        })
-        .reduce((sum, el) => {
-            return sum + el;
-        }, 0)
-        this.setState({purchasable: true})
+        const sum = Object.keys(ingredients)
+            .map(igKey => {
+                return ingredients[igKey]
+            })
+            .reduce((sum, el) => {
+                return sum + el;
+            }, 0)
+            this.setState({purchasable: sum > 0})
     }
 
     addIngredientHandler = (type) => {
