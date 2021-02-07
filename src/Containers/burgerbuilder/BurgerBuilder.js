@@ -26,6 +26,11 @@ class BurgerBuilder extends Component {
     const ingredients = {
         ...this.state.ingredients
     }
+
+    const sum = Object.keys(ingredients)
+        .map(igKey => {
+            return ingredients.[igKey]
+        })
     }
 
     addIngredientHandler = (type) => {
