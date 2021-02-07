@@ -3,7 +3,7 @@ import Aux from '../../hoc/Aux'
 import Burger from "../../Components/Burger/Burger";
 import BuildControls from "../../Components/Burger/BuildControls/BuildControls";
 import Modal from '../../Components/UI/Modal/Modal'
-import OrderSummary from "../../Components/Burger/BurgerSummary/BurgerSummary";
+import OrderSummary from "../../Components/Burger/OrderSummary/OrderSummary";
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
