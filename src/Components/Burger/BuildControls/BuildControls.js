@@ -24,7 +24,7 @@ const buildControls = (props) => (
 
         ))}
 
-        <button>Order Now!</button>
+        <button className={classes.OrderButton}>Order Now!</button>
     </div>
 )
 
