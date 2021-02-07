@@ -22,6 +22,12 @@ class BurgerBuilder extends Component {
         purchasable: false
     }
 
+    updatePurchaseState = () => {
+    const ingredients = {
+        ...this.state.ingredients
+    }
+    }
+
     addIngredientHandler = (type) => {
         const oldCount = this.state.ingredients[type];
         const updatedCount = oldCount + 1;
