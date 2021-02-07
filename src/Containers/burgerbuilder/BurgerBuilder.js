@@ -34,6 +34,7 @@ class BurgerBuilder extends Component {
         .reduce((sum, el) => {
             return sum + el;
         }, 0)
+        this.setState({purchasable: true})
     }
 
     addIngredientHandler = (type) => {
