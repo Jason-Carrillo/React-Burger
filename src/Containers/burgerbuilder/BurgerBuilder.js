@@ -31,6 +31,9 @@ class BurgerBuilder extends Component {
         .map(igKey => {
             return ingredients.[igKey]
         })
+        .reduce((sum, el) => {
+            return sum + el;
+        }, 0)
     }
 
     addIngredientHandler = (type) => {
