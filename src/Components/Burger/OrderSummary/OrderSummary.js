@@ -21,8 +21,8 @@ const orderSummary = (props) => {
                 {ingredientSummary}
             </ul>
             <p>Continue to Checkout?</p>
-            <Button buttonType={classes.Danger} clicked={}> Cancel </Button>
-            <Button buttonType={classes.Success} clicked={}> Continue </Button>
+            <Button buttonType="Danger" clicked={}> Cancel </Button>
+            <Button buttonType="Success" clicked={}> Continue </Button>
         </Aux>
     )
 }
