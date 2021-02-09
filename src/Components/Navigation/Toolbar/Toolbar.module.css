@@ -6,4 +6,5 @@
     left: 0;
     background-color: #703B09;
     display: flex;
+    justify-content: space-between;
 }
