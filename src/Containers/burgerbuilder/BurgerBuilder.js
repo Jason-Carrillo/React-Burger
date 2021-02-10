@@ -97,7 +97,7 @@ class BurgerBuilder extends Component {
             },
             deliveryMethod: 'Fastest'
         }
-        axios.post('/orders.json')
+        axios.post('/orders.json', order)
     }
 
     render() {
