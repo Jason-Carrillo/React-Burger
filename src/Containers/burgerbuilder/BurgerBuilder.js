@@ -124,13 +124,7 @@ class BurgerBuilder extends Component {
 
         let orderSummary = null;
 
-
-
-
-
-
-
-        let burger = <Spinner />
+        let burger = <Spinner />;
 
         if (this.state.ingredients) {
             burger = (
@@ -145,7 +139,7 @@ class BurgerBuilder extends Component {
                         ordered={this.purchaseHandler}
                     />
                 </Aux>
-            )
+            );
             orderSummary = <OrderSummary
                 ingredients={this.state.ingredients}
                 purchaseCancelled={this.purchaseCancelHandler}
@@ -163,7 +157,6 @@ class BurgerBuilder extends Component {
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>
-
                 {burger}
 
             </Aux>
