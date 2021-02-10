@@ -15,17 +15,20 @@ const INGREDIENT_PRICES = {
     bacon: 0.7
 }
 
+
 class BurgerBuilder extends Component {
     state = {
-        ingredients: {
-            salad: 0,
-            bacon: 0,
-            cheese: 0,
-            meat: 0
-        },
+        ingredients: null,
         totalPrice: 4,
         purchasable: false,
         purchasing: false
+    }
+
+    componentDidMount() {
+        axios.get('https://react-91e64-default-rtdb.firebaseio.com/orders/Ingredients.json')
+            .then(response => {
+                this.setState({ingredients: response.data})
+            })
     }
 
     updatePurchaseState = (ingredients) => {
