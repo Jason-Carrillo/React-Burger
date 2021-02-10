@@ -125,6 +125,7 @@ class BurgerBuilder extends Component {
             price={this.state.totalPrice}
         />
 
+
         if (this.state.loading){
             orderSummary = <Spinner />
         }
@@ -132,7 +133,7 @@ class BurgerBuilder extends Component {
         return (
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
-                    {OrderSummary}
+                    {orderSummary}
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 <BuildControls
