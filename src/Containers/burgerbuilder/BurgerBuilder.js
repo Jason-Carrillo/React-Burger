@@ -84,6 +84,8 @@ class BurgerBuilder extends Component {
 
     purchaseContinueHandler = () => {
         // alert('You got this BURGER!');
+        this.setState({loading: true})
+
         const order = {
             ingredients: this.state.ingredients,
             price: this.state.totalPrice,
@@ -99,8 +101,12 @@ class BurgerBuilder extends Component {
             deliveryMethod: 'Fastest'
         }
         axios.post('/orders.json', order)
-            .then(response => console.log(response))
-            .catch(error => console.log(error))
+            .then(response => {
+                this.setState({loading: false})
+            })
+            .catch(error => {
+                this.setState({loading: false})
+            })
     }
 
     render() {
