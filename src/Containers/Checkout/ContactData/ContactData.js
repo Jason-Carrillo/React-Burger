@@ -18,10 +18,10 @@ class ContactData extends Component {
             <div className={classes.ContactData} >
                 <h4>Enter your Contact Data</h4>
                 <form>
-                    <input type="text" name="name" placeholder="Enter Your name" />
-                    <input type="email" name="email" placeholder="Enter Your email" />
-                    <input type="text" name="street" placeholder="Enter Your Street Address" />
-                    <input type="text" name="postal" placeholder="Enter Your Postal Code" />
+                    <input className={classes.Input} type="text" name="name" placeholder="Enter Your name" />
+                    <input className={classes.Input} type="email" name="email" placeholder="Enter Your email" />
+                    <input className={classes.Input} type="text" name="street" placeholder="Enter Your Street Address" />
+                    <input className={classes.Input} type="text" name="postal" placeholder="Enter Your Postal Code" />
                     <Button buttonType="Success" >Order</Button>
                 </form>
             </div>
