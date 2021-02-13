@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Layout from './hoc/Layout/Layout'
 import BurgerBuilder from "./Containers/burgerbuilder/BurgerBuilder";
+import Checkout from "./Containers/Checkout/Checkout";
 
 class App extends Component {
 
