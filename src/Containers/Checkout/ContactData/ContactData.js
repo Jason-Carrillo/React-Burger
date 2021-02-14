@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../../../Components/UI/Button/Button'
+import axios from "../../../axios-orders";
 
 import classes from './ContactData.module.css'
 
@@ -19,7 +20,7 @@ class ContactData extends Component {
 
             const order = {
                 ingredients: this.props.ingredients,
-                price: this.state.totalPrice,
+                price: this.props.price,
                 customer: {
                     name: 'Jason Carrillo',
                     address: {
