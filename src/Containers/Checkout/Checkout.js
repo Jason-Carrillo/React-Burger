@@ -6,8 +6,13 @@ import ContactData from "./ContactData/ContactData";
 
 class Checkout extends Component {
     state = {
-        ingredients: null,
-        totalPrice: 0
+        ingredients: {
+            salad: 1,
+            meat: 1,
+            cheese: 1,
+            bacon: 1
+        },
+        price: 0,
     }
 
     componentWillMount() {
@@ -40,8 +45,9 @@ class Checkout extends Component {
                     ingredients={this.state.ingredients}
                     checkoutCancelled={this.checkoutCancelledHandler}
                     checkoutContinue={this.checkoutContinueHandler}/>
-                    <Route path={this.props.match.path + '/contact-data'}
-                           render={(props) => (<ContactData ingredients={this.state.ingredients} price={this.state.totalPrice} {...props} />)}/>
+                    <Route
+                        path={this.props.match.path + '/contact-data'}
+                        render={(props) => (<ContactData ingredients={this.state.ingredients} price={this.state.totalPrice} {...props} />)}/>
             </div>
         )
     }

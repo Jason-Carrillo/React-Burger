@@ -12,7 +12,8 @@ class ContactData extends Component {
         address: {
             street: '',
             postalCode: ''
-        }
+        },
+        loading: false
     }
 
     orderHandler = (event) => {
@@ -54,6 +55,7 @@ class ContactData extends Component {
                 <Button buttonType="Success" clicked={this.orderHandler}>Order</Button>
             </form>
         );
+
         if (this.state.loading) {
             form = <Spinner />
         }

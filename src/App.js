@@ -4,10 +4,9 @@ import { Route, Switch } from 'react-router-dom'
 import Layout from './hoc/Layout/Layout'
 import BurgerBuilder from "./Containers/burgerbuilder/BurgerBuilder";
 import Checkout from "./Containers/Checkout/Checkout";
-import Orders from './Components/Order/Order'
+import Orders from "./Containers/Orders/Orders";
 
 class App extends Component {
-
 
     render() {
       return (
