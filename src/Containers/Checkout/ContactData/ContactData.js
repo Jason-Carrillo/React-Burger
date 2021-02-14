@@ -13,8 +13,32 @@ class ContactData extends Component {
         }
     }
 
-    orderHandler = () => {
-        console.log(this.props.ingredients)
+    orderHandler = (event) => {
+        event.preventDefault()
+            this.setState({loading: true})
+
+            const order = {
+                ingredients: this.props.ingredients,
+                price: this.state.totalPrice,
+                customer: {
+                    name: 'Jason Carrillo',
+                    address: {
+                        Street: 'TestStreet 1234',
+                        zipcode: '12345',
+                        country: 'USA'
+                    },
+                    email: 'jasonemail@email.com'
+                },
+                deliveryMethod: 'Fastest'
+            }
+            axios.post('/orders.json', order)
+                .then(response => {
+                    this.setState({loading: false, purchasing: false})
+                })
+                .catch(error => {
+                    this.setState({loading: false, purchasing: false})
+                })
+
     }
 
     render() {
