@@ -87,7 +87,7 @@ class ContactData extends Component {
                 value: ''
             }
         },
-        formisValid: false,
+        formIsValid: false,
         loading: false
     }
 
@@ -181,7 +181,7 @@ class ContactData extends Component {
                         touched={formElement.config.touched}
                         changed={(event) => this.props.inputChangedHandler(event, formElement.id)}/>
                 ))}
-               <Button buttonType="Success" clicked={this.orderHandler}>Order</Button>
+               <Button buttonType="Success" disabled={!this.state.formIsValid} >Order</Button>
             </form>
         );
 
