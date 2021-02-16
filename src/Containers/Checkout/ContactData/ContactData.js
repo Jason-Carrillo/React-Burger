@@ -109,8 +109,13 @@ class ContactData extends Component {
 
     }
 
-    checkValidity () {
+    checkValidity (value, rules) {
+        let isValid = false;
+        if (rules.required) {
+            isValid = value.trim() !== '';
+        }
 
+        return isValid;
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
@@ -122,6 +127,7 @@ class ContactData extends Component {
         }
 
         updatedFormElement.value = event.target.value;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
         updatedOrderForm[inputIdentifier] = updatedFormElement;
         this.setState({orderForm: updatedOrderForm})
 
