@@ -15,7 +15,10 @@ class ContactData extends Component {
                     type: 'text',
                     placeholder: 'Your Name'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true;
+                }
             },
             Street: {
                 elementType: 'input',
@@ -23,7 +26,10 @@ class ContactData extends Component {
                     type: 'text',
                     placeholder: 'Your Street'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true;
+                }
             },
             zipcode: {
                 elementType: 'input',
@@ -31,7 +37,10 @@ class ContactData extends Component {
                     type: 'text',
                     placeholder: 'Your Zipcode'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true;
+                }
             },
             country: {
                 elementType: 'input',
@@ -39,7 +48,10 @@ class ContactData extends Component {
                     type: 'text',
                     placeholder: 'Your Country'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true;
+                }
             },
             email: {
                 elementType: 'input',
@@ -47,7 +59,10 @@ class ContactData extends Component {
                     type: 'email',
                     placeholder: 'Your Email'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true;
+                }
             },
             deliveryMethod: {
                 elementType: 'select',
@@ -75,6 +90,7 @@ class ContactData extends Component {
             const order = {
                 ingredients: this.props.ingredients,
                 price: this.props.price,
+                orderData: formData
 
             }
             axios.post('/orders.json', order)
