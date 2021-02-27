@@ -6,6 +6,11 @@ import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 
 class Orders extends Component {
 
+    state = {
+        orders: [],
+        loading: true
+    }
+
     componentDidMount() {
         axios.get('/orders.json')
             .then(res => {
