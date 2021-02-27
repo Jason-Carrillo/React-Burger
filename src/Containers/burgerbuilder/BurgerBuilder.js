@@ -34,10 +34,10 @@ class BurgerBuilder extends Component {
     componentDidMount() {
         console.log(this.props)
 
-        axios.get('https://react-91e64-default-rtdb.firebaseio.com/orders/Ingredients.json')
-            .then(response => {
-                this.setState({ingredients: response.data})
-            });
+        // axios.get('https://react-91e64-default-rtdb.firebaseio.com/orders/Ingredients.json')
+        //     .then(response => {
+        //         this.setState({ingredients: response.data})
+        //     });
     }
 
     updatePurchaseState = (ingredients) => {
