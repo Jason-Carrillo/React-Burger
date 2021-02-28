@@ -55,7 +55,7 @@ class BurgerBuilder extends Component {
             queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]))
         }
 
-        queryParams.push('price=' + this.state.totalPrice)
+        queryParams.push('price=' + this.props.price)
         const queryString = queryParams.join('&');
         this.props.history.push({
             pathname: '/checkout',
@@ -85,7 +85,7 @@ class BurgerBuilder extends Component {
                         ingredientRemoved={this.props.ingredientRemoved}
                         disabled={disabledInfo}
                         purchasable={this.state.purchasable}
-                        price={this.state.totalPrice}
+                        price={this.props.price}
                         ordered={this.purchaseHandler}
                     />
                 </Aux>
@@ -94,7 +94,7 @@ class BurgerBuilder extends Component {
                 ingredients={this.props.ings}
                 purchaseCancelled={this.purchaseCancelHandler}
                 purchaseContinued={this.purchaseContinueHandler}
-                price={this.state.totalPrice}
+                price={this.props.price}
             />
         }
 
