@@ -2,32 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { combineReducers, createStore, applyMiddleware } from 'redux'
+import { createStore } from 'redux'
 
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import reducer from './store/reducer'
 
-const rootReducer = combineReducers({
-    ctr: counterReducer,
-    res: resultReducer
-})
+const store = createStore(reducer)
 
-const logger = store => {
-    return next => {
-        return action => {
-            console.log('[Middleware] Dispatching', action);
-            const result = next(action)
-            console.log('[Middleware] next state', store.getState())
-            return result;
-        }
-    }
-}
+const app = (
+    <Provider store={store} >
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
+)
 
-const store = createStore(rootReducer, applyMiddleware(logger))
-
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root')
+ReactDOM.render( app, document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
