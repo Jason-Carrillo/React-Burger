@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import axios from "../../axios-orders";
 
 export const addIngredient = (name) => {
     return {
@@ -23,6 +24,12 @@ export const setIngredients = (ingredients) => {
 
 export const initIngredients = () => {
     return dispatch => {
-
+        axios.get('https://react-91e64-default-rtdb.firebaseio.com/orders/Ingredients.json')
+        .then(response => {
+            this.setState({ingredients: response.data})
+        })
+        .catch(error => {
+            this.setState({error: true})
+        });
     };
 };
