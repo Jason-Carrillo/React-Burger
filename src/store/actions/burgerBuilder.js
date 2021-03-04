@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from "../../axios-orders";
+import { act } from 'react-dom/test-utils';
 
 export const addIngredient = (name) => {
     return {
@@ -22,14 +23,20 @@ export const setIngredients = (ingredients) => {
     };
 }
 
+export const fetchIngredientsFailed = () => {
+    return {
+        type: actionTypes.FETCH_INGREDIENTS_FAILED
+    }
+}
+
 export const initIngredients = () => {
     return dispatch => {
         axios.get('https://react-91e64-default-rtdb.firebaseio.com/orders/Ingredients.json')
         .then(response => {
-            this.setState({ingredients: response.data})
+            dispatch(setIngredients(response.data))
         })
         .catch(error => {
-            this.setState({error: true})
+            dispatch(fetchIngredientsFailed())
         });
     };
 };
