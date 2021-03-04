@@ -5,8 +5,10 @@ import Spinner from '../../../Components/UI/Spinner/Spinner'
 import Input from '../../../Components/UI/Input/Input'
 import { connect } from 'react-redux'
 import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler"
+import * as actions from "../../../store/actions/index"
 
 import classes from './ContactData.module.css'
+import { purchaseBurgerStart } from '../../../store/actions/order';
 
 class ContactData extends Component {
     state = {
@@ -109,6 +111,8 @@ class ContactData extends Component {
                 orderData: formData
             }
 
+            this.props.onOrderBurger(order);
+
 
     }
 
@@ -201,6 +205,10 @@ const mapStateToProps = state => {
         ings: state.ingredients,
         price: state.totalPrice
     }
+}
+
+const mapDispatchToProps = dispatch => {
+    onOrderBurger: (orderData) => dispatch(actions.purchaseBurgerStart(orderData))
 }
 
 export default connect(mapStateToProps) (withErrorHandler(ContactData, axios));
