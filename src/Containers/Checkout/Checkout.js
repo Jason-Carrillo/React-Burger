@@ -4,18 +4,24 @@ import { connect } from 'react-redux'
 
 import CheckoutSummary from "../../Components/Order/CheckoutSummary/CheckoutSummary";
 import ContactData from "./ContactData/ContactData";
+import * as actions from '../../store/actions/index'
 
 class Checkout extends Component {
 
-    checkoutCancelledHandler = () => {
+
+componentDidMount () {
+
+}
+
+checkoutCancelledHandler = () => {
         this.props.history.goBack();
     }
 
-    checkoutContinueHandler = () => {
+checkoutContinueHandler = () => {
         this.props.history.replace('/checkout/contact-data');
     }
 
-    render() {
+render() {
         let summary = <Redirect to="/" />
         if(this.props.ings) {
             summary =(
@@ -42,6 +48,12 @@ class Checkout extends Component {
 const mapStateToProps = state => {
     return {
         ings: state.BurgerBuilder.ingredients
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onInitPurchase: () => dispatch(actions.purchaseInit())        }
     }
 }
 
