@@ -8,7 +8,8 @@ class Orders extends Component {
 
     state = {
         orders: [],
-        loading: true
+        loading: false,
+        purchased: false
     }
 
     componentDidMount() {
