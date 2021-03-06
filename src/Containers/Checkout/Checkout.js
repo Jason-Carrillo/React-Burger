@@ -25,10 +25,11 @@ render() {
         let summary = <Redirect to="/" />
         if(this.props.ings) {
             
-            const purchasedRedirect = <Redirect to="/" />
+            const purchasedRedirect = this.props.purchased ? <Redirect to="/" /> : null;
 
             summary =(
                 <div>
+                    {purchasedRedirect}
                 <CheckoutSummary
                     ingredients={this.props.ings}
                     checkoutCancelled={this.checkoutCancelledHandler}
@@ -50,7 +51,8 @@ render() {
 
 const mapStateToProps = state => {
     return {
-        ings: state.BurgerBuilder.ingredients
+        ings: state.BurgerBuilder.ingredients,
+        purchased: state.order.purchased
     }
 }
 
