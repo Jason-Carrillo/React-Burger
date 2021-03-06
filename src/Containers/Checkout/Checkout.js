@@ -10,7 +10,7 @@ class Checkout extends Component {
 
 
 componentDidMount () {
-
+    this.props.onInitPurchase();
 }
 
 checkoutCancelledHandler = () => {
