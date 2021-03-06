@@ -9,7 +9,7 @@ import * as actions from '../../store/actions/index'
 class Checkout extends Component {
 
 
-componentDidMount () {
+componentWillMount () {
     this.props.onInitPurchase();
 }
 
@@ -53,7 +53,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onInitPurchase: () => dispatch(actions.purchaseInit())        }
+        onInitPurchase: () => dispatch(actions.purchaseInit())
     }
 }
 
