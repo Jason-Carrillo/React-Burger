@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from "../../axios-orders"
+import order from '../../Components/Order/Order';
 
 export const purchaseBurgerSuccess = (id, orderData) => {
     return {
@@ -33,5 +34,31 @@ export const purchaseBurger = (orderData) => {
                 .catch(error => {
                     dispatch( purchaseBurgerFail(error) )
                 })
+    }
+}
+
+export const purchaseInit = () => {
+    return {
+        type: actionTypes.PURCHASE_INIT
+    }
+}
+
+export const fetchOrdersSuccess = (orders) => {
+    return {
+        type: actionTypes.FETCH_ORDERS_SUCCESS,
+        orders: orders
+    }
+}
+
+export const fetchOrdersFail = (orders) => {
+    return {
+        type: actionTypes.FETCH_ORDERS_FAIL,
+        error: error
+    }
+}
+
+export const fetchOrdersStart = () => {
+    return {
+        type: actionTypes.FETCH_ORDERS_START
     }
 }
