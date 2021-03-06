@@ -34,22 +34,21 @@ const reducer = ( state = initialState, action) => {
             }
             return updateObject(state, updatedSt)
         case actionTypes.SET_INGREDIENTS:
-            return {
-                ...state,
-                ingredients: { 
-                    salad:  action.ingredients.salad,
-                    bacon: action.ingredients.bacon,
-                    cheese: action.ingredients.cheese,
-                    meat: action.ingredients.meat,
-            },
-            totalPrice: 4,
-            error: false
-            }
-            case actionTypes.FETCH_INGREDIENTS_FAILED:
-                return {
+            return updateObject(state, {
                     ...state,
-                    error: true
-                }
+                    ingredients: { 
+                        salad:  action.ingredients.salad,
+                        bacon: action.ingredients.bacon,
+                        cheese: action.ingredients.cheese,
+                        meat: action.ingredients.meat,
+                },
+                totalPrice: 4,
+                error: false
+                
+            });
+            
+            case actionTypes.FETCH_INGREDIENTS_FAILED:
+                return updateObject(state, {error: true});
         default:
             return state;
     }
