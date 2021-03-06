@@ -30,6 +30,12 @@ class Orders extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        orders: state.order.orders
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         onFetchOrders: () => dispatch(actions.fetchedOrders())
