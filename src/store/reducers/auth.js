@@ -1,4 +1,5 @@
 import * as actionTypes from "../actions/actionTypes"
+import { authStart } from "../actions/auth"
 import {updateObject} from "../utility"
 
 const initialState = {
@@ -12,11 +13,18 @@ const authState = (state, action) => {
     return updateObject(state, {error: null, loading: true})
 }
 
+const authSuccess = (state, action) => {
+    return updateObject(state, { 
+        token: action.idToken,
+        userId: action.userId,
+        error: null,
+        loading: false
+     })
+}
+
 const reducer = (state, action) => {
     switch (action.type) {
-        case actionTypes.AUTH_START:
-            return updateObject(state, {error: null, loading: true})
-            
+        case actionTypes.AUTH_START: return authStart(state, action)
         default:
             return state;
         
