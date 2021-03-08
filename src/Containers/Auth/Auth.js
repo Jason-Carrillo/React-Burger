@@ -55,12 +55,13 @@ state = {
                 touched={formElement.config.touched}
                 changed={(event) => this.props.inputChangedHandler(event, formElement.id)}
                 />
+
         ));
 
         return (
             <div>
                 <form>
-
+                <Button buttonType={sucess} > </Button>
                 </form>
             </div>
         )
