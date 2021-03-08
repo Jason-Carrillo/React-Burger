@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import { connect } from 'react-redux'
 
 import Input from "../../Components/UI/Button/Button"
 import classes from './Auth.module.css'
@@ -70,6 +71,11 @@ inputChangedHandler = (event, controlName) => {
     this.setState({controls: updatedControls})
 }
 
+submitHandler = (event) => {
+    event.preventDefault();
+    this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value)
+}
+
     render () {
         const formElementsArray = []
 
@@ -95,8 +101,8 @@ inputChangedHandler = (event, controlName) => {
         ));
 
         return (
-            <div>
-                <form className={Auth} >
+            <div className={Auth}>
+                <form onSubmit={this.submitHandler} >
                     {form}
                 <Button buttonType={sucess} > </Button>
                 </form>
@@ -105,4 +111,10 @@ inputChangedHandler = (event, controlName) => {
     }
 }
 
-export default Auth;
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (email, passowrd) => dispatch(action.auth())
+    }
+}
+
+export default connect(null, mapDispatchToProps) (Auth);
