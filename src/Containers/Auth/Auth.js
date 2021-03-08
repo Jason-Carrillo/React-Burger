@@ -121,7 +121,7 @@ switchAuthModeHandler = () => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, passowrd) => dispatch(action.auth())
+        onAuth: (email, password, isSignup) => dispatch(action.auth(email, password, isSignup))
     }
 }
 
