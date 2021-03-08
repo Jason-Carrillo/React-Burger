@@ -25,6 +25,19 @@ export const authfail = (error) => {
 export const auth = (email, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAIQ-2VgZuQoYotsPrAAZD2PQjIvl11ExY')
+        const authData = {
+            email: email,
+            password: password,
+            returnSecureToken: true
+        }
+        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAIQ-2VgZuQoYotsPrAAZD2PQjIvl11ExY', authData)
+        .then(response => {
+            console.log(response)
+            dispatch(authSuccess(response.data))
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch(authfail())
+        })
     }
 }
