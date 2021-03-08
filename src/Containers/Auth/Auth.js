@@ -106,6 +106,7 @@ submitHandler = (event) => {
                     {form}
                 <Button buttonType={sucess} > </Button>
                 </form>
+                <Button buttonType="Danger">Switch to Signin</Button>
             </div>
         )
     }
