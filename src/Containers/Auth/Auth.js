@@ -66,6 +66,7 @@ inputChangedHandler = (event, controlName) => {
             touched: true
         }
     }
+    this.setState({controls: updatedControls})
 }
 
     render () {
