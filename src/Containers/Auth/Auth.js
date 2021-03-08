@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 
 import Input from "../../Components/UI/Button/Button"
+import classes from './Auth.module.css'
 
 class Auth extends Component {
 state = {
@@ -37,10 +38,10 @@ state = {
     render () {
         const formElementsArray = []
 
-        for (let key in this.state.orderForm){
+        for (let key in this.state.controls){
             formElementsArray.push({
                 id: key,
-                config: this.state.orderForm[key]
+                config: this.state.controls[key]
             })
         }
 
@@ -60,7 +61,8 @@ state = {
 
         return (
             <div>
-                <form>
+                <form className={Auth} >
+                    {form}
                 <Button buttonType={sucess} > </Button>
                 </form>
             </div>
