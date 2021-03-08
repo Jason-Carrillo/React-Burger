@@ -34,7 +34,8 @@ state = {
         },
         valid: false,
         touched: false
-    }
+    },
+    isSignup: true
 }
 
 checkValidity (value, rules) {
@@ -76,6 +77,12 @@ submitHandler = (event) => {
     this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value)
 }
 
+switchAuthModeHandler = () => {
+    this.setState(prevState => {
+        return {isSignup: !prevState.isSignup}
+    })
+}
+
     render () {
         const formElementsArray = []
 
@@ -106,7 +113,7 @@ submitHandler = (event) => {
                     {form}
                 <Button buttonType={sucess} > </Button>
                 </form>
-                <Button buttonType="Danger">Switch to Signin</Button>
+                <Button buttonType="Danger">Switch to {this.state.isSignup ? "Sign in" : "Sign up"}</Button>
             </div>
         )
     }
