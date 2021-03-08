@@ -1,5 +1,7 @@
 import React, { Component} from 'react';
 
+import Input from "../../Components/UI/Button/Button"
+
 class Auth extends Component {
 state = {
     email: {
