@@ -23,6 +23,12 @@ export const authfail = (error) => {
     }
 }
 
+export const checkAuthTimeout = (expirationTime) =>  {
+    return dispatch => {
+
+    };
+};
+
 export const auth = (email, password, method) => {
     return dispatch => {
         dispatch(authStart());
@@ -39,6 +45,7 @@ export const auth = (email, password, method) => {
         .then(response => {
             console.log(response)
             dispatch(authSuccess(response.data.idToken, reponse.data.localId))
+            dispatch(checkAuthTimeout(response.data.expiresIn))
         })
         .catch(err => {
             dispatch(authfail(err.response.data.error))
