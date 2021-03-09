@@ -40,7 +40,7 @@ const mapStateToProps = state => {
     return {
         orders: state.order.orders,
         loading: state.order.loading,
-        token: state.order.token
+        token: state.auth.token
     }
 }
 
