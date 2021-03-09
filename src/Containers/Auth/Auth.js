@@ -40,7 +40,11 @@ state = {
     isSignup: true
 }
 
-componentDidMount()
+componentDidMount() {
+    if(!this.props.buildingBurger && this.props.authRedirectPath !== "/"){
+        this.onSetAuthRedirectPath()
+    }
+}
 
 checkValidity (value, rules) {
     let isValid = true;
