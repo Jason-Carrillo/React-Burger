@@ -108,6 +108,10 @@ switchAuthModeHandler = () => {
 
         ));
 
+        if(this.props.loading){
+            form = <Spinner />
+        }
+
         return (
             <div className={Auth}>
                 <form onSubmit={this.submitHandler} >
