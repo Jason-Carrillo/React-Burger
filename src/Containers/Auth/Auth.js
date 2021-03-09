@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux'
+import {Redirect} from "react-router-dom"
 
 import Input from "../../Components/UI/Button/Button"
 import Button from "../../Components/UI/Button/Button"
@@ -119,9 +120,15 @@ switchAuthModeHandler = () => {
                 <p>{this.props.error.message}</p>
             )
         }
+        
+        let authRedirect = null
+        if (this.props.isAuthenticated) {
+            authRedirect = <Redirect to="/" />
+        }
 
         return (
             <div className={Auth}>
+                {authRedirect}
                 {errorMessage}
                 <form onSubmit={this.submitHandler} >
                     {form}
@@ -136,7 +143,8 @@ switchAuthModeHandler = () => {
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
-        error: state.auth.error
+        error: state.auth.error,
+        isAuthenticated: state.auth.token !== null
     }
 }
 
