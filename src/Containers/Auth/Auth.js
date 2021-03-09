@@ -112,6 +112,14 @@ switchAuthModeHandler = () => {
             form = <Spinner />
         }
 
+        let errorMessage = null;
+
+        if (this.props.error) {
+            errorMessage = (
+                <p>{this.props.error.message}</p>
+            )
+        }
+
         return (
             <div className={Auth}>
                 <form onSubmit={this.submitHandler} >
