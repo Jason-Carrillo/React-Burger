@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
 import Aux from '../Aux/Aux'
 import classes from './Layout.module.css'
 import Toolbar from '../../Components/Navigation/Toolbar/Toolbar'
@@ -33,5 +34,10 @@ class Layout extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        usAuthenticated: state
+    }
+}
 
 export default Layout;
