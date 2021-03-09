@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
+import {connect} from "react-redux"
 
 import Layout from './hoc/Layout/Layout'
 import BurgerBuilder from "./Containers/burgerbuilder/BurgerBuilder";
@@ -7,6 +8,7 @@ import Checkout from "./Containers/Checkout/Checkout";
 import Orders from "./Containers/Orders/Orders";
 import Auth from "./Containers/Auth/Auth"
 import Logout from "./Containers/Auth/Logout/Logout"
+import * as actions from "./store/actions/index"
 
 class App extends Component {
 
@@ -24,6 +26,12 @@ class App extends Component {
             </Layout>
           </div>
       )};
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onTryAutoSignup: () => dispatch(actions.authCheckState())
+    }
 }
 
 export default App;
