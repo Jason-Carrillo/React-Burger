@@ -125,7 +125,7 @@ switchAuthModeHandler = () => {
         
         let authRedirect = null
         if (this.props.isAuthenticated) {
-            authRedirect = <Redirect to="/" />
+            authRedirect = <Redirect to={this.props.authRedirect} />
         }
 
         return (
