@@ -12,6 +12,10 @@ import * as actions from "./store/actions/index"
 
 class App extends Component {
 
+    componentDidMount () {
+        this.props.onTryAutoSignup()
+    }
+
     render() {
       return (
           <div>
@@ -34,4 +38,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default App;
+export default connect(null, mapDispatchToProps) (App);
