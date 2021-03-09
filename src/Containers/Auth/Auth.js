@@ -120,10 +120,16 @@ switchAuthModeHandler = () => {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (email, password, isSignup) => dispatch(action.auth(email, password, isSignup))
     }
 }
 
-export default connect(null, mapDispatchToProps) (Auth);
+export default connect(mapStateToProps, mapDispatchToProps) (Auth);
