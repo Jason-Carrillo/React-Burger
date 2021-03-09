@@ -9,6 +9,7 @@ export const authStart = () => {
 }
 
 export const authSuccess = (token, userId) => {
+
     return {
         type: actionTypes.AUTH_SUCCESS,
         token: token,
@@ -52,6 +53,7 @@ export const auth = (email, password, method) => {
         axios.post(url, authData)
         .then(response => {
             console.log(response)
+            localStorage.setItem("token", response.data.idToken)
             dispatch(authSuccess(response.data.idToken, reponse.data.localId))
             dispatch(checkAuthTimeout(response.data.expiresIn))
         })
