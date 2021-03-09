@@ -122,6 +122,7 @@ switchAuthModeHandler = () => {
 
         return (
             <div className={Auth}>
+                {errorMessage}
                 <form onSubmit={this.submitHandler} >
                     {form}
                 <Button buttonType={sucess} > </Button>
