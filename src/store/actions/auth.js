@@ -27,6 +27,7 @@ export const authfail = (error) => {
 export const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("expirationDate");
+    localStorage.removeItem("userId");
     return {
         type: actionTypes.AUTH_LOGOUT
     }
@@ -58,6 +59,7 @@ export const auth = (email, password, method) => {
             const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000)
             localStorage.setItem("token", response.data.idToken)
             localStorage.setItem("expirationDate", expirationDate)
+            localStorage.setitem("userId", response.data.userId)
             dispatch(authSuccess(response.data.idToken, reponse.data.localId))
             dispatch(checkAuthTimeout(response.data.expiresIn))
         })
