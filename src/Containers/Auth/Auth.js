@@ -6,6 +6,7 @@ import Input from "../../Components/UI/Button/Button"
 import Button from "../../Components/UI/Button/Button"
 import classes from './Auth.module.css'
 import * as actions from "../../store/actions/index"
+import {updateObject} from "../../shared/utility"
 
 class Auth extends Component {
 state = {
