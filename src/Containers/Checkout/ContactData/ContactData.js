@@ -140,15 +140,15 @@ class ContactData extends Component {
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
-        const updatedOrderForm = {
-            ...this.state.orderForm
-        }
+        
         const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
-            value:event.target.value,
+            value: event.target.value,
             valid: this.checkValidity(updatedFormElement.value, updatedFormElement.validation),
             touched: true
         }) 
-        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        const updatedOrderForm = updateObject(this.state.orderForm, {
+            [inputIdentifier]: updatedFormElement
+        })
 
         let formIsValid = true;
 
