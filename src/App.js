@@ -5,13 +5,19 @@ import asyncComponent from './hoc/asyncComponent/asyncComponent'
 
 import Layout from './hoc/Layout/Layout'
 import BurgerBuilder from "./Containers/burgerbuilder/BurgerBuilder";
-import Orders from "./Containers/Orders/Orders";
-import Auth from "./Containers/Auth/Auth"
 import Logout from "./Containers/Auth/Logout/Logout"
 import * as actions from "./store/actions/index"
 
 const asyncCheckout = asyncComponent (() => {
-    return import('./Containers/Checkout/Checkout"')
+    return import('./Containers/Checkout/Checkout')
+})
+
+const asyncOrders = asyncComponent (() => {
+    return import("./Containers/Orders/Orders")
+})
+
+const asyncAuth = asyncComponent (() => {
+    return import("./Containers/Auth/Auth")
 })
 
 class App extends Component {
