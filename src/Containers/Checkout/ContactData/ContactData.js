@@ -6,11 +6,10 @@ import Input from '../../../Components/UI/Input/Input'
 import { connect } from 'react-redux'
 import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler"
 import * as actions from "../../../store/actions/index"
-import {updateObject} from "../../../shared/utility"
 
 import classes from './ContactData.module.css'
 import { purchaseBurgerStart } from '../../../store/actions/order';
-import { updateObject } from '../../../shared/utility';
+import { updateObject, checkValidity } from '../../../shared/utility';
 
 class ContactData extends Component {
     state = {
