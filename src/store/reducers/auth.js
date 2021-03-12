@@ -1,6 +1,6 @@
 import * as actionTypes from "../actions/actionTypes"
 import { authStart } from "../actions/auth"
-import {updateObject} from "../utility"
+import {updateObject} from "../../shared/utility"
 import Spinner from "../../Components/UI/Spinner/Spinner"
 
 const initialState = {
