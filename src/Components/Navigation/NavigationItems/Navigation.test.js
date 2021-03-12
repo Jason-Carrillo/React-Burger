@@ -11,6 +11,6 @@ configure({adapter: new Adapter()})
 describe('<Navigationitems />', () => {
     it('should render two <NavigationItem /> elements if not authenticated', () => {
         const wrapper = shallow(<NavigationItems/>);
-        expect(wrapper.find(NavigationItem))
+        expect(wrapper.find(NavigationItem)).toHaveLength(2)
     });
 });
