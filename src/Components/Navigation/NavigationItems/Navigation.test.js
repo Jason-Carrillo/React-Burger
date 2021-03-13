@@ -16,6 +16,6 @@ describe('<Navigationitems />', () => {
 
     it('should render three <NavigationItem /> elements if authenticated', () => {
         const wrapper = shallow(<NavigationItems isAuthenticated />);
-        expect(wrapper.find(NavigationItem)).toHaveLength(2)
+        expect(wrapper.find(NavigationItem)).toHaveLength(3)
     });
 });
