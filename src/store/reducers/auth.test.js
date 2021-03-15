@@ -3,6 +3,12 @@ import * as actionTypes from '../actions/actionTypes'
 
 describe('auth reducer', () => {
     it('should return inititial state', () => {
-        expect(reducer(undefined, {}))
+        expect(reducer(undefined, {
+            token: null,
+            userId: null,
+            error: null,
+            loading: false,
+            authRedirect: "/"
+        }))
     })
 })
