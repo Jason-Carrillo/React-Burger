@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Aux from '../../hoc/Aux/Aux'
 import Burger from "../../Components/Burger/Burger";
 import BuildControls from "../../Components/Burger/BuildControls/BuildControls";
@@ -11,7 +11,7 @@ import axios from "../../axios-orders";
 import * as burgerBuilderActions from '../../store/actions/index'
 
 
-class BurgerBuilder extends Component {
+const burgerbuilder = props =>  {
     state = {
         purchasing: false
     }

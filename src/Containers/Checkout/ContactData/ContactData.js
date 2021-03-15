@@ -96,7 +96,7 @@ const contactData = props => {
         const [formIsValid, setFormIsValid] = useState(false)
     }
 
-    orderHandler = (event) => {
+    const orderHandler = (event) => {
         event.preventDefault()
 
             const formData = {}
@@ -194,4 +194,4 @@ const mapDispatchToProps = dispatch => {
    
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (withErrorHandler(ContactData, axios));
+export default connect(mapStateToProps, mapDispatchToProps) (withErrorHandler(contactData, axios));
