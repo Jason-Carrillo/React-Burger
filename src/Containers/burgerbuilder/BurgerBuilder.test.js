@@ -12,7 +12,7 @@ describe("<BurgerBuilder /", () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = shallow(<BurgerBuilder />)
+        wrapper = shallow(<BurgerBuilder onInitIngredients={() => {}} />)
     })
 
     it("should render <BuildControls /> when receiving ingredients", () => {
