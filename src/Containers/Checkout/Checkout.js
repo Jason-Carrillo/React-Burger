@@ -11,7 +11,7 @@ const checkoutCancelledHandler = () => {
         props.history.goBack();
     }
 
-checkoutContinueHandler = () => {
+const checkoutContinueHandler = () => {
         props.history.replace('/checkout/contact-data');
     }
 
@@ -25,8 +25,8 @@ checkoutContinueHandler = () => {
                     {purchasedRedirect}
                 <CheckoutSummary
                     ingredients={this.props.ings}
-                    checkoutCancelled={this.checkoutCancelledHandler}
-                    checkoutContinue={this.checkoutContinueHandler}/>
+                    checkoutCancelled={checkoutCancelledHandler}
+                    checkoutContinue={checkoutContinueHandler}/>
                     <Route
                         path={this.props.match.path + '/contact-data'}
                         component={ContactData} />
