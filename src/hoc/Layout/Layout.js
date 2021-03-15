@@ -19,9 +19,9 @@ const layout = props => {
         return (
             <Aux>
                 <Toolbar 
-                    isAuth={this.props.isAuthenticated}
-                    drawerToggleClicked={this.sideDrawerToggleHandler} />
-                <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>
+                    isAuth={props.isAuthenticated}
+                    drawerToggleClicked={sideDrawerToggleHandler} />
+                <SideDrawer open={sideDrawerisVisible} closed={sideDrawerClosedHandler}/>
                 <main className={classes.Content}>
                     {this.props.children}
                 </main>
