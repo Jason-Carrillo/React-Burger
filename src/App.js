@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, useEffect, Suspense } from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import {connect} from "react-redux"
 import asyncComponent from './hoc/asyncComponent/asyncComponent'
@@ -8,15 +8,15 @@ import BurgerBuilder from "./Containers/burgerbuilder/BurgerBuilder";
 import Logout from "./Containers/Auth/Logout/Logout"
 import * as actions from "./store/actions/index"
 
-const asyncCheckout = React.lazy (() => {
+const Checkout = React.lazy (() => {
     return import('./Containers/Checkout/Checkout')
 })
 
-const asyncOrders = React.lazy (() => {
+const Orders = React.lazy (() => {
     return import("./Containers/Orders/Orders")
 })
 
-const asyncAuth = React.lazy (() => {
+const Auth = React.lazy (() => {
     return import("./Containers/Auth/Auth")
 })
 
@@ -50,7 +50,9 @@ const app = props => {
       return (
           <div>
             <Layout>
+                <Suspense fallback={<p>Loading...</p>} >
                 {routes}
+                </Suspense>
             </Layout>
           </div>
       )};
