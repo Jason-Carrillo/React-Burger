@@ -149,7 +149,7 @@ const contactData = props => {
         }
 
         let form = (
-            <form onSubmit={this.orderHandler}>
+            <form onSubmit={orderHandler}>
                 {formElementsArray.map(formElement => (
                     <Input
                         key={formElement.id}
@@ -159,9 +159,9 @@ const contactData = props => {
                         invalid={!formElement.config.valid}
                         shouldValidate={formElement.config.validation}
                         touched={formElement.config.touched}
-                        changed={(event) => this.props.inputChangedHandler(event, formElement.id)}/>
+                        changed={(event) => inputChangedHandler(event, formElement.id)}/>
                 ))}
-               <Button buttonType="Success" disabled={!this.state.formIsValid} >Order</Button>
+               <Button buttonType="Success" disabled={!formIsValid} >Order</Button>
             </form>
         );
 
