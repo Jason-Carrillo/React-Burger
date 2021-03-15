@@ -16,8 +16,6 @@ const layout = props => {
         setSideDrawerIsVisible(!sideDrawerisVisible)
     }
 
-
-    render() {
         return (
             <Aux>
                 <Toolbar 
@@ -30,7 +28,6 @@ const layout = props => {
             </Aux>
         )
     }
-}
 
 const mapStateToProps = state => {
     return {
