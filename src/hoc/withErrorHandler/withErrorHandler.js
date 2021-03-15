@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 
 import Modal from '../../Components/UI/Modal/Modal'
 import Aux from '../Aux/Aux'
@@ -17,12 +17,12 @@ const withErrorHandler = (WrappedComponent, axios) => {
                 setError(error)
             })
     
-
-        componentWillUnmount() {
-            console.log('Will unmount', this.reqInterceptor, this.resInterceptor)
-            axios.interceptors.request.eject(this.reqInterceptor);
-            axios.interceptors.request.eject(this.resInterceptor);
-        }
+            useEffect(() => {
+                return () => {
+                    axios.interceptors.request.eject(this.reqInterceptor);
+                    axios.interceptors.request.eject(this.resInterceptor);
+                }
+            }, [])
 
         errorConfirmedHandler = () => {
             this.setState({error: null})
