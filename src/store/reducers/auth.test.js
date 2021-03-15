@@ -23,6 +23,12 @@ describe('auth reducer', () => {
             type: actionTypes.AUTH_SUCCESS,
             idToken: 'some-token',
             userId: 'some_user_id'
-        }))
+        })).toEqual({
+            token: 'some-token',
+            userId: 'some_user_id',
+            error: null,
+            loading: false,
+            authRedirect: "/"
+        })
     })
 })
