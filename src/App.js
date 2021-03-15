@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import {connect} from "react-redux"
 import asyncComponent from './hoc/asyncComponent/asyncComponent'
@@ -22,9 +22,9 @@ const asyncAuth = asyncComponent (() => {
 
 const app = props => {
 
-    componentDidMount () {
-        this.props.onTryAutoSignup()
-    }
+    useEffect(() => {
+        props.onTryAutoSignup()
+    }, [])
 
         let routes = (
             <Switch>
@@ -68,4 +68,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps) (App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps) (app));
