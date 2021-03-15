@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Button from '../../../Components/UI/Button/Button'
 import axios from "../../../axios-orders";
 import Spinner from '../../../Components/UI/Spinner/Spinner'
@@ -12,8 +12,7 @@ import { purchaseBurgerStart } from '../../../store/actions/order';
 import { updateObject, checkValidity } from '../../../shared/utility';
 
 const contactData = props => {
-    state = {
-        orderForm : {
+  const [orderForm, setOrderForm] = useState({
             name: {
                 elementType: 'input',
                 elementConfig: {
@@ -93,8 +92,8 @@ const contactData = props => {
                 validation: {},
                 valid: true
             }
-        },
-        formIsValid: false
+        })
+        const [formIsValid, setFormIsValid] = useState(false)
     }
 
     orderHandler = (event) => {
