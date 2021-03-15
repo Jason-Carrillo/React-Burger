@@ -4,10 +4,9 @@ import Modal from '../../Components/UI/Modal/Modal'
 import Aux from '../Aux/Aux'
 
 const withErrorHandler = (WrappedComponent, axios) => {
-    return props  {
-        state = {
-            error: null
-        }
+    return props => {
+        
+        const [error, setError] = useState(null)
 
         componentDidMount() {
             this.reqInterceptor = axios.interceptors.request.use(req => {
