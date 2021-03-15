@@ -9,11 +9,11 @@ const layout = props => {
     const [sideDrawerisVisible, setSideDrawerIsVisible] = useState(false)
 
     sideDrawerClosedHandler = () => {
-        this.setState({showSideDrawer: false})
+       setSideDrawerIsVisible(false)
     }
 
     sideDrawerToggleHandler = () => {
-        setSideDrawerIsVisible(false)
+        setSideDrawerIsVisible(!sideDrawerisVisible)
     }
 
 
