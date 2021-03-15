@@ -11,4 +11,18 @@ describe('auth reducer', () => {
             authRedirect: "/"
         }))
     })
+
+    it('should store the token upon login', () => {
+        expect(reducer({
+            token: null,
+            userId: null,
+            error: null,
+            loading: false,
+            authRedirect: "/"
+        }, {
+            type: actionTypes.AUTH_SUCCESS,
+            idToken: 'some-token',
+            userId: 'some_user_id'
+        }))
+    })
 })
