@@ -20,7 +20,11 @@ const burgerbuilder = props =>  {
 
     const [purchasing, setPurchasing] = useState(false);
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
+    // const useSelector(state => {
+    //     return 
+    // })
 
     const onIngredientAdded = (ignName) => dispatch(actions.addIngredient(ignName)),
     const onIngredientRemoved = (ignName) => dispatch(actions.removeIngredient(ignName)),
