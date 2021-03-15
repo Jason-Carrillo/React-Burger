@@ -8,15 +8,15 @@ import BurgerBuilder from "./Containers/burgerbuilder/BurgerBuilder";
 import Logout from "./Containers/Auth/Logout/Logout"
 import * as actions from "./store/actions/index"
 
-const asyncCheckout = asyncComponent (() => {
+const asyncCheckout = React.lazy (() => {
     return import('./Containers/Checkout/Checkout')
 })
 
-const asyncOrders = asyncComponent (() => {
+const asyncOrders = React.lazy (() => {
     return import("./Containers/Orders/Orders")
 })
 
-const asyncAuth = asyncComponent (() => {
+const asyncAuth = React.lazy (() => {
     return import("./Containers/Auth/Auth")
 })
 
