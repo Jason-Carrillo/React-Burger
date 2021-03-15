@@ -100,8 +100,8 @@ const contactData = props => {
         event.preventDefault()
 
             const formData = {}
-            for (let formElementIdentifier in this.state.orderForm){
-                formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+            for (let formElementIdentifier in orderForm){
+                formData[formElementIdentifier] = orderForm[formElementIdentifier].value;
             }
 
             const order = {
@@ -120,12 +120,12 @@ const contactData = props => {
 
     inputChangedHandler = (event, inputIdentifier) => {
         
-        const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
+        const updatedFormElement = updateObject(orderForm[inputIdentifier], {
             value: event.target.value,
             valid: checkValidity(event.target.value, this.state.validation),
             touched: true
         }) 
-        const updatedOrderForm = updateObject(this.state.orderForm, {
+        const updatedOrderForm = updateObject(orderForm, {
             [inputIdentifier]: updatedFormElement
         })
 
@@ -141,7 +141,7 @@ const contactData = props => {
 
         const formElementsArray = []
 
-        for (let key in this.state.orderForm){
+        for (let key in orderForm){
             formElementsArray.push({
                 id: key,
                 config: this.state.orderForm[key]
