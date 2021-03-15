@@ -8,11 +8,11 @@ import SideDrawer from '../../Components/Navigation/SideDrawer/SideDrawer'
 const layout = props => {
     const [sideDrawerisVisible, setSideDrawerIsVisible] = useState(false)
 
-    sideDrawerClosedHandler = () => {
+    const sideDrawerClosedHandler = () => {
        setSideDrawerIsVisible(false)
     }
 
-    sideDrawerToggleHandler = () => {
+    const sideDrawerToggleHandler = () => {
         setSideDrawerIsVisible(!sideDrawerisVisible)
     }
 
