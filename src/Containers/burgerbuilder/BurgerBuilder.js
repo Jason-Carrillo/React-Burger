@@ -12,14 +12,15 @@ import * as burgerBuilderActions from '../../store/actions/index'
 
 
 const burgerbuilder = props =>  {
-    state = {
-        purchasing: false
-    }
+    // state = {
+    //     purchasing: false
+    // }
 
-    componentDidMount() {
+    const [purchasing, setPurchasing] = useState(false)
+
+    useEffect(() => {
         this.props.initIngredients()
-
-    }
+    }, [])
 
     updatePurchaseState = (ingredients) => {
 
