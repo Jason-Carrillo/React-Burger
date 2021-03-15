@@ -18,10 +18,18 @@ const burgerbuilder = props =>  {
     //     purchasing: false
     // }
 
-    const [purchasing, setPurchasing] = useState(false)
+    const [purchasing, setPurchasing] = useState(false);
+
+    const dispatch = useDispatch()
+
+    const onIngredientAdded = (ignName) => dispatch(actions.addIngredient(ignName)),
+    const onIngredientRemoved = (ignName) => dispatch(actions.removeIngredient(ignName)),
+    const onInitIngredients = () => dispatch(actions.initIngredients),
+    const onInitPurchase = () => dispatch(actions.purchaseInit()),
+    const onSetAuthRedirectPath = (path) => dispatch(actions.setAuthRedirectPath(path))
 
     useEffect(() => {
-        this.props.initIngredients()
+        initIngredients()
     }, [])
 
     const updatePurchaseState = (ingredients) => {
@@ -40,7 +48,7 @@ const burgerbuilder = props =>  {
         if(props.isAuthenticated){
             setPurchasing(true)
         } else {
-            props.onSetRedirectPath("/checkout")
+            onSetRedirectPath("/checkout")
             props.history.push("/auth");
         }
        
