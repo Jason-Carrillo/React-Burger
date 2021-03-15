@@ -22,7 +22,7 @@ const burgerbuilder = props =>  {
         this.props.initIngredients()
     }, [])
 
-    updatePurchaseState = (ingredients) => {
+    const updatePurchaseState = (ingredients) => {
 
         const sum = Object.keys(ingredients)
             .map(igKey => {
@@ -34,18 +34,18 @@ const burgerbuilder = props =>  {
             return sum > 0;
     }
 
-    purchaseHandler =  () => {
-        if(this.props.isAuthenticated){
-            this.setState({purchasing: true})
+    const purchaseHandler =  () => {
+        if(props.isAuthenticated){
+            setPurchasing(true)
         } else {
-            this.props.onSetRedirectPath("/checkout")
-            this.props.history.push("/auth");
+            props.onSetRedirectPath("/checkout")
+            props.history.push("/auth");
         }
        
     }
 
-    purchaseCancelHandler = () => {
-        this.setState({purchasing: false})
+    const purchaseCancelHandler = () => {
+        setPurchasing(false)
     }
 
     purchaseContinueHandler = () => {
