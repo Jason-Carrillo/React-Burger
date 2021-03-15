@@ -11,7 +11,7 @@ import classes from './ContactData.module.css'
 import { purchaseBurgerStart } from '../../../store/actions/order';
 import { updateObject, checkValidity } from '../../../shared/utility';
 
-class ContactData extends Component {
+const contactData = props => {
     state = {
         orderForm : {
             name: {
@@ -140,7 +140,6 @@ class ContactData extends Component {
 
     }
 
-    render() {
         const formElementsArray = []
 
         for (let key in this.state.orderForm){
@@ -176,8 +175,7 @@ class ContactData extends Component {
                 {form}
             </div>
         );
-    }
-
+    
 }
 
 const mapStateToProps = state => {
