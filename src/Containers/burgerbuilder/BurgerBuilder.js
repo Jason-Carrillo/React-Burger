@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import {connect, useDispatch, useSelector} from 'react-redux';
+
 import Aux from '../../hoc/Aux/Aux'
 import Burger from "../../Components/Burger/Burger";
 import BuildControls from "../../Components/Burger/BuildControls/BuildControls";
