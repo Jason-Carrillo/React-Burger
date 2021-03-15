@@ -20,13 +20,12 @@ const asyncAuth = asyncComponent (() => {
     return import("./Containers/Auth/Auth")
 })
 
-class App extends Component {
+const app = props => {
 
     componentDidMount () {
         this.props.onTryAutoSignup()
     }
 
-    render() {
         let routes = (
             <Switch>
                 <Route path="/auth" component={asyncAuth} />
@@ -46,7 +45,6 @@ class App extends Component {
                 <Redirect to="/" />
             </Switch>
         )
-        }
         
 
       return (
