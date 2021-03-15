@@ -4,11 +4,16 @@ import classes from './Modal.module.css'
 import Aux from '../../../hoc/Aux/Aux'
 import Backdrop from "../Backdrop/Backdrop";
 
-const modal = props => {
+const modal = props =>  {
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
     }
+
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        console.log("[Modal] Will Update")
+    }
+
         return (
             <Aux>
                 <Backdrop show={this.props.show} clicked={this.props.modalClosed}/>
@@ -23,7 +28,6 @@ const modal = props => {
                 </div>
             </Aux>
         );
-}
+    }
 
-
-export default React.memo(modal);
+export default Modal;
