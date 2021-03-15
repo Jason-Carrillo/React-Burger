@@ -4,7 +4,7 @@ import Modal from '../../Components/UI/Modal/Modal'
 import Aux from '../Aux/Aux'
 
 const withErrorHandler = (WrappedComponent, axios) => {
-    return class extends Component {
+    return props  {
         state = {
             error: null
         }
@@ -41,7 +41,6 @@ const withErrorHandler = (WrappedComponent, axios) => {
                 </Aux>
             )
         }
-    }
 }
 
 export default withErrorHandler
