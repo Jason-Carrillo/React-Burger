@@ -7,7 +7,7 @@ import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import * as actions from "../../store.actions/index"
 import Spinner from '../../Components/UI/Spinner/Spinner'
 
-class Orders extends Component {
+const orders = props =>  {
     componentDidMount() {
         this.props.onFetchOrders(this.props.token, this.props.userId);
     }
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Orders, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(orders, axios));
