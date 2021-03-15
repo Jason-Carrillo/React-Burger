@@ -134,8 +134,8 @@ const contactData = props => {
         for (let inputIdentifiers in updatedOrderForm) {
             formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid
         }
-
-        this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid})
+        setOrderForm(updatedOrderForm)
+        setFormIsValid(formIsValid)
 
     }
 
