@@ -68,29 +68,29 @@ const burgerbuilder = props =>  {
         if (this.props.ings) {
             burger = (
                 <Aux>
-                    <Burger ingredients={this.props.ings}/>
+                    <Burger ingredients={props.ings}/>
                     <BuildControls
-                        ingredientAdded={this.props.ingredientAdded}
-                        ingredientRemoved={this.props.ingredientRemoved}
+                        ingredientAdded={props.ingredientAdded}
+                        ingredientRemoved={props.ingredientRemoved}
                         disabled={disabledInfo}
-                        purchasable={this.updatePurchaseState(this.props.ings)}
-                        price={this.props.price}
-                        ordered={this.purchaseHandler}
-                        isAuth={this.props.isAuthenticated}
+                        purchasable={updatePurchaseState(this.props.ings)}
+                        price={props.price}
+                        ordered={purchaseHandler}
+                        isAuth={props.isAuthenticated}
                     />
                 </Aux>
             );
             orderSummary = <OrderSummary
                 ingredients={this.props.ings}
-                purchaseCancelled={this.purchaseCancelHandler}
-                purchaseContinued={this.purchaseContinueHandler}
+                purchaseCancelled={purchaseCancelHandler}
+                purchaseContinued={purchaseContinueHandler}
                 price={this.props.price}
             />
         }
 
         return (
             <Aux>
-                <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
+                <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>
                 {burger}
