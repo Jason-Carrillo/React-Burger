@@ -48,12 +48,11 @@ const burgerbuilder = props =>  {
         setPurchasing(false)
     }
 
-    purchaseContinueHandler = () => {
-        this.props.onInitPurchase();
-        this.props.history.push('/checkout')
+    const purchaseContinueHandler = () => {
+        props.onInitPurchase();
+        props.history.push('/checkout')
     }
 
-    render() {
         const disabledInfo = {
             ...this.props.ings
         }
@@ -99,7 +98,6 @@ const burgerbuilder = props =>  {
             </Aux>
         );
     }
-}
 
 const mapStateToProps = state => {
     return {
@@ -120,4 +118,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (withErrorHandler(BurgerBuilder, axios));
+export default connect(mapStateToProps, mapDispatchToProps) (withErrorHandler(burgerBuilder, axios));
